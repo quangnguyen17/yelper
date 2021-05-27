@@ -23,14 +23,14 @@ xed .
 ## Demo Screenshots:
 
 <div class="d-flex">
-    <img src="screenshots/1.png" width="234" height="506.4" style="object-fit: contain;" />
-    <img src="screenshots/3.png" width="234" height="506.4" style="object-fit: contain;" />
-    <img src="screenshots/4.png" width="234" height="506.4" style="object-fit: contain;" />
-    <img src="screenshots/5.png" width="234" height="506.4" style="object-fit: contain;" />
+    <img src="screenshots/1.png" width="195" height="422" style="object-fit: contain;" />
+    <img src="screenshots/3.png" width="195" height="422" style="object-fit: contain;" />
+    <img src="screenshots/4.png" width="195" height="422" style="object-fit: contain;" />
+    <img src="screenshots/5.png" width="195" height="422" style="object-fit: contain;" />
 </div>
 <div class="d-flex">
-    <img src="screenshots/6.png" width="234" height="506.4" style="object-fit: contain;" />
-    <img src="screenshots/7.png" width="234" height="506.4" style="object-fit: contain;" />
-    <img src="screenshots/8.png" width="234" height="506.4" style="object-fit: contain;" />
-    <img src="screenshots/9.png" width="234" height="506.4" style="object-fit: contain;" />
+    <img src="screenshots/6.png" width="195" height="422" style="object-fit: contain;" />
+    <img src="screenshots/7.png" width="195" height="422" style="object-fit: contain;" />
+    <img src="screenshots/8.png" width="195" height="422" style="object-fit: contain;" />
+    <img src="screenshots/9.png" width="195" height="422" style="object-fit: contain;" />
 </div>
