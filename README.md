@@ -1,6 +1,6 @@
 # Yelper
 
-<img src="appstore.png" width="256" height="256" style="border-radius: 32px;" />
+<img src="appstore.png" width="192" height="192" style="border-radius: 32px;" />
 
 -   Yelp clone, a simplified version of Yelp.
 -   Helps you find any restaurants nearby your locations.
