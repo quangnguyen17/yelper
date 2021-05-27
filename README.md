@@ -12,7 +12,7 @@
 -   Core Location
 -   Core Data
 
-## How to run project:
+## How to run project on your computer:
 
 ```bash
 git clone https://github.com/quangnguyen17/yelper.git
