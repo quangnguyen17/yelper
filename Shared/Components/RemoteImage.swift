@@ -17,10 +17,7 @@ struct RemoteImage: View {
         var state = LoadState.loading
 
         init(url: String) {
-            guard let parsedURL = URL(string: url) else {
-                fatalError("Invalid URL: \(url)")
-            }
-
+            guard let parsedURL = URL(string: url) else { return }
             URLSession.shared.dataTask(with: parsedURL) { data, response, error in
                 if let data = data, data.count > 0 {
                     self.data = data
@@ -37,32 +34,27 @@ struct RemoteImage: View {
     }
 
     @StateObject private var loader: Loader
-    var loading: Image
-    var failure: Image
+    var loading: Text
+    var failure: Text
 
     var body: some View {
-        selectImage()
-            .resizable()
-    }
-
-    init(url: String, loading: Image?, failure: Image?) {
-        _loader = StateObject(wrappedValue: Loader(url: url))
-        self.loading = loading ?? Image(systemName: "photo")
-        self.failure = failure ?? Image(systemName: "photo")
-    }
-
-    private func selectImage() -> Image {
         switch loader.state {
         case .loading:
-            return loading
+            return AnyView(loading)
         case .failure:
-            return failure
+            return AnyView(failure)
         default:
             if let image = UIImage(data: loader.data) {
-                return Image(uiImage: image)
+                return AnyView(Image(uiImage: image).resizable())
             } else {
-                return failure
+                return AnyView(failure)
             }
         }
+    }
+
+    init(url: String, loading: Text = Text("Loading..."), failure: Text = Text("Failed to load image.")) {
+        _loader = StateObject(wrappedValue: Loader(url: url))
+        self.loading = loading
+        self.failure = failure
     }
 }

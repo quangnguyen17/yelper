@@ -5,32 +5,43 @@
 //  Created by Duong Nguyen on 5/26/21.
 //
 
+import Foundation
 import CoreLocation
+import Combine
 
-class LocationManager: ObservableObject, CLLocationManagerDelegate {
-    var didChange = PassthroughSubject<NetworkManager, Never>()
+class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
+    var didChange = PassthroughSubject<LocationManager, Never>()
 
+    private let locationManager = CLLocationManager()
     
-    @Published var center: NetworkResult = NetworkResult(businesses: [], region: Region(center: Center(latitude: 33.7886375, longitude: -117.9632285))) {
+    @Published var status: CLAuthorizationStatus? {
         didSet {
             didChange.send(self)
         }
     }
     
-    let manager = CLLocationManager()
-
-    init() {
-        manager.delegate = self
+    @Published var location: CLLocation? {
+        didSet {
+            didChange.send(self)
+        }
     }
-
-    func getCurrentLocation() {
-        manager.requestWhenInUseAuthorization()
-        manager.startUpdatingLocation()
+    @Published var coordinate: Center? {
+        didSet {
+            didChange.send(self)
+        }
     }
-
+    
+    override init() {
+        super.init()
+        self.locationManager.delegate = self
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.startUpdatingLocation()
+    }
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let coordinate = locations.first?.coordinate {
-            center = Center(latitude: coordinate.latitude, longitude: coordinate.longitude)
+            self.coordinate = Center(latitude: coordinate.latitude, longitude: coordinate.longitude)
         }
     }
 }
