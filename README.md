@@ -9,10 +9,14 @@
 
 -   Swift
 -   SwiftUI
+-   Foundation
+-   Combine
+-   Environment
 -   Core Location
 -   Core Data
+-   Singleton
 
-## How to run project on your computer:
+## How to run project:
 
 ```bash
 git clone https://github.com/quangnguyen17/yelper.git
@@ -20,7 +24,7 @@ cd yelper
 xed .
 ```
 
-## Demo Screenshots:
+## Screenshots:
 
 <div class="d-flex">
     <img src="screenshots/1.png" width="195" height="422" style="object-fit: contain;" />
